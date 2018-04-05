@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu: MonoBehaviour {
 	public int hudMenuIndex;
+	public int gambitMenuIndex;
 	
 	public void Update() {
 		if(Input.GetButtonDown("Pause")) {
@@ -24,6 +25,13 @@ public class PauseMenu: MonoBehaviour {
 		);
 	}
 
+	public void OnGambitPressed() {
+		gameObject.GetComponentInParent<LiteMenuManager>().OpenMenu(
+			gambitMenuIndex,
+			true
+		);
+	}
+	
 	public void OnQuitPressed()	{
 		Debug.Log("Quit button pressed!! Program closes.");
 		Application.Quit();
